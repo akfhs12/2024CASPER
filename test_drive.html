@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시승 신청하기</title>
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <link href="./css/common.css" rel="stylesheet" type="text/css">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <!-- 폰트어썸 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+
+
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- 상단 헤더 -->
+  <header class="td_header">
+    <h1>
+      <a href="index.html" title="메인 페이지 바로가기">
+        <img src="./images/logo-casper_black.png" alt="캐스퍼 로고">
+      </a>
+    </h1>
+
+    <!-- 내비게이션 -->
+    <nav class="gnb">
+      <ul>
+        <li><a href="#none" title="">소개</a></li>
+        <li><a href="#none" title="">체험</a></li>
+        <li><a href="#none" title="">이벤트</a></li>
+        <li><a href="#none" title="">구매</a></li>
+        <li><a href="#none" title="">고객지원</a></li>
+      </ul>
+    </nav>
+
+    <a href="login.html" title="로그인 페이지 바로가기"><i class="fas fa-user"></i></a>
+    <i class="fas fa-bell"></i>
+
+  </header>
+
+  <main>
+    <section class="t_d_img">
+      <div class="t_d_location">
+        <span>홈</span>
+        <span>체험</span>
+        <span>전시/시승 안내</span>
+      </div>
+      <div class="t_d_title">
+        <h2 class="sec_title2">전시/시승 안내</h2>
+        <p class="p01">가까운 곳에서 캐스퍼를 만나보세요.</p>
+      </div>
+    </section>
+    <section class="t_d_reser">
+      <h3 class="sec_title3">시승신청 온라인 예약</h3>
+
+      <form name="시승신청" method="post" action="db_insert.php">
+        <fieldset>
+          <legend>시승신청 온라인 예약</legend>
+          <p><label for="name">고객명 : </label><input type="text" id="name" name="name" maxlength="10" required></p>
+          <p><label for="phone">휴대폰 : </label><input type="text" id="phone" name="phone" maxlength="10" required></p>
+          <p class="sms_box"><label>SMS수신여부 :</label>
+            <label for="sms01" class="sms_radio">수신</label><input type="radio" id="sms01" name="sms" value="Y">
+            <label for="sms02" class="sms_radio">수신안함</label><input type="radio" id="sms02" name="sms" value="N">
+          </p>
+          <p>
+            <label for="email">이메일 주소 : </label><input type="email" id="email" name="email" maxlength="30" required>
+          </p>
+          <p>
+            <label for="region">전시장 선택 :</label>
+            <select id="region" name="region" required>
+              <option value="전시장 선택">전시장 선택</option>
+              <option value="강남점">강남점</option>
+              <option value="송파점">송파점</option>
+              <option value="한남점">한남점</option>
+            </select>
+          </p>
+          <p>
+            <label for="car">차량 선택 : </label>
+            <select id="car" name="car" required>
+              <option value="차량 선택">차량 선택</option>
+              <option value="캐스퍼">캐스퍼</option>
+              <option value="캐스퍼 인스퍼레이션">캐스퍼 인스퍼레이션</option>
+              <option value="소나타">소나타</option>
+              <option value="그랜저">그랜저</option>
+              <option value="제네시스">제네시스</option>
+            </select>
+          </p>
+          <p><label for="my_car">보유차종 : </label><input type="text" id="my_car" name="my_car" required></p>
+          <p><label for="e_date">시승희망일 : </label><input type="date" id="e_date" name="e_date"></p>
+          <p class="reser_btn_box">
+            <input type="submit" value="예약하기" class="reser_btn ">
+            <input type="reset" value="취소하기" class="reser_btn reset_btn">
+          </p>
+        </fieldset>
+
+      </form>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer>
+    <div class="f_inner">
+      <h2>
+        <a href="index.html" title="메인 페이지 바로가기">
+          <img src="./images/logo-hyundai.a9ebdc6.png" alt="하단 로고">
+        </a>
+      </h2>
+
+      <nav class="f_lnb">
+        <ul>
+          <li><a href="#none" title="이용약관">이용약관</a></li>
+          <li><a href="#none" title="개인정보 처리방침">개인정보 처리방침</a></li>
+          <li><a href="#none" title="저작권 안내">저작권 안내</a></li>
+          <li><a href="#none" title="공동인증서 안내">공동인증서 안내</a></li>
+          <li><a href="#none" title="현대자동차 홈페이지">현대자동차 홈페이지</a></li>
+        </ul>
+      </nav>
+
+      <address>
+        <dl>
+          <dt>사업자등록번호 : </dt>
+          <dd>101-00-00000</dd>
+          <dt>통신판매업신고번호 : </dt>
+          <dd>2022-012345</dd>
+          <dt>대표이사 : </dt>
+          <dd>장땡땡</dd>
+          <dt>주소 : </dt>
+          <dd>서울시 서초구 헌릉로 12</dd>
+          <dt>호스팅 서비스 제공 : </dt>
+          <dd>현대오토에버(주)</dd>
+        </dl>
+        <p>COPYRIGHT&copy; 2024 HYUNDAI MOTOR COMPANY, ALL RIGHTS RESERVED.</p>
+      </address>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>

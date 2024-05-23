@@ -17,9 +17,9 @@
   transform: translate(-50%, -50%);
 }
 .m_txt_box{
+  position: relative;
   background-color: var(--bg_color);
-  padding: 4px 6px 8px;
-  vertical-align: middle;
+  padding: 10px 10px;
 }
 .m_txt_box #m_today_close{
   transform: translateY(2px);
@@ -29,11 +29,16 @@
   cursor: pointer;
 }
 .m_txt_box .m_close{
-  float: right;
+  position: absolute;
+  top: 3px;
+  right: 4px;
   padding: 5px 8px;
   border: 1px solid #cccccc;
   border-radius: 3px;
   cursor: pointer;
+}
+#m_today_close{
+  display: none;
 }
 
 
@@ -50,6 +55,7 @@ header > h1{
   position: absolute;
   top: 0;
   width: 100%;
+  /* z-index: -1; */
 }
 
 .gnb > ul{
