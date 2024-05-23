@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:root{
+
+  --m_font: 'Noto Sans KR';
+  --f_size_base: 12px;
+  --f_size1: 14px;
+  --f_size2: 16px;
+
+  --bg_color: #ffffff;
+  --f_color: #333333;
+
+  --s_color1: #006EFF;
+  --s_color2: #212772;
+  --s_color3: #0000FF;
+}
+
+body{
+  overflow-x: hidden;
+  font-family: var(--m_font);
+  font-size: var(--f_size_base);
+  color: var(--f_color);
+  background-color: var(--bg_color);
+}
+
+a{
+  text-decoration: none;
+  font-size: var(--f_size_base);
+  color: var(--f_color);
+}

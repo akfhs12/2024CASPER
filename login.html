@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 폼</title>
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <!-- 스와이퍼 -->
+  <link href="./css/swiper.css" rel="stylesheet" type="text/css">
+  <!-- 폰트어썸 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <form class="login" name="login">
+    <fieldset>
+      <legend><a href="index.html" title="메인페이지 바로가기"><img src="./images/logo-casper_black.png" alt="캐스퍼 로고"></a></legend>
+      <p>
+        <label for="id_txt" class="none">ID : </label>
+        <input type="text" id="id_txt" name="id_txt" placeholder="아이디를 입력해주세요." maxlength="16" autocomplete="off">
+      </p>
+      <p>
+        <label for="pw_txt" class="none">PASSWORD : </label>
+        <input type="password" id="pw_txt" name="pw_txt" placeholder="비밀번호를 입력해주세요." maxlength="30" autocomplete="off">
+      </p>
+      <p class="id_save_box">
+        <input type="checkbox" id="id_save" name="id_save">
+        <label for="id_save">아이디 저장</label>
+      </p>
+      <p>
+        <input type="submit" id="login_btn" name="login_btn" value="로그인">
+      </p>
+      <p class="find_box">
+        <a href="#none" title="아이디 찾기">아이디 찾기</a>
+        <a href="#none" title="비밀번호 찾기">비밀번호 찾기</a>
+        <a href="#none" title="회원가입">회원가입</a>
+      </p>
+    </fieldset>
+  </form>
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      let key = getCookie('idChk');
+
+      // key 변수에 값이 있다면 id 값을 저장한다
+      if(key!=""){
+        $('#id_txt').val(key);
+      }
+
+      // 쿠키에 id값이 있다면 아이디 저장 체크박스에 체크를 해둔다
+      if($('#id_txt').val()!=""){
+        $('#id_save').attr('checked', true);
+      }
+
+      $('#id_save').change(function(){ //체크박스의 상태가 변경되면 아래 내용 실행
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idChk', $('#id_txt').val(), 7); //쿠키를 생성하고
+        } else{ // 그렇지 않으면
+          deleteCookie('idChk'); //쿠키를 삭제한다
+        }
+      })
+
+      $('#id_txt').keyup(function(){ //아이디 입력창에 키를 눌렀을 경우
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idChk', $('#id_txt').val(), 7); //쿠키를 생성한다
+        }
+      })
+    }) //제이쿼리 닫는 태그
+
+    // 자바스크립트 쿠키 스크립트
+    function setCookie(cookieName, value, exdays){
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+        document.cookie = cookieName + "=" + cookieValue;
+    }
+    
+    function deleteCookie(cookieName){
+      var expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() - 1);
+      document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+    }
+      
+    function getCookie(cookieName) {
+      cookieName = cookieName + '=';
+      var cookieData = document.cookie;
+      var start = cookieData.indexOf(cookieName);
+      var cookieValue = '';
+      if(start != -1){
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+      }
+      return unescape(cookieValue);
+    }
+  </script>
+</body>
+</html>
